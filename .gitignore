@@ -16,6 +16,7 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
+CountOnMe.xcodeproj/project.xcworkspace/xcshareddata/
 
 ## Other
 *.moved-aside
@@ -63,3 +64,4 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
+.DS_Store
