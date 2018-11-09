@@ -76,6 +76,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		521550F9219624C400DEE812 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C926DAE01D7581BB00477020 /* Main.storyboard */,
+				C926DAE51D7581BB00477020 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		521550FA219624DD00DEE812 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			path = Model/Model;
+			sourceTree = "<group>";
+		};
+		521550FB219624DF00DEE812 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C926DADE1D7581BB00477020 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		521550FC2196252700DEE812 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C926DADC1D7581BB00477020 /* AppDelegate.swift */,
+				C926DAE81D7581BB00477020 /* Info.plist */,
+				C926DAE31D7581BB00477020 /* Assets.xcassets */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		C926DAD01D7581BB00477020 = {
 			isa = PBXGroup;
 			children = (
@@ -100,12 +135,10 @@
 		C926DADB1D7581BB00477020 /* CountOnMe */ = {
 			isa = PBXGroup;
 			children = (
-				C926DADC1D7581BB00477020 /* AppDelegate.swift */,
-				C926DADE1D7581BB00477020 /* ViewController.swift */,
-				C926DAE01D7581BB00477020 /* Main.storyboard */,
-				C926DAE31D7581BB00477020 /* Assets.xcassets */,
-				C926DAE51D7581BB00477020 /* LaunchScreen.storyboard */,
-				C926DAE81D7581BB00477020 /* Info.plist */,
+				521550FA219624DD00DEE812 /* Model */,
+				521550F9219624C400DEE812 /* View */,
+				521550FB219624DF00DEE812 /* Controller */,
+				521550FC2196252700DEE812 /* SupportingFiles */,
 			);
 			name = CountOnMe;
 			path = "Zozor+";
@@ -433,7 +466,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Zozor+/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Zozor+/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ambroisecollon.CountOnMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -448,7 +481,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Zozor+/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Zozor+/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ambroisecollon.CountOnMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
