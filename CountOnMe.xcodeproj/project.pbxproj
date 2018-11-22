@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		524DDB8121A5C87500073394 /* Calcul.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524DDB8021A5C87500073394 /* Calcul.swift */; };
 		C926DADD1D7581BB00477020 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C926DADC1D7581BB00477020 /* AppDelegate.swift */; };
 		C926DADF1D7581BB00477020 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C926DADE1D7581BB00477020 /* ViewController.swift */; };
 		C926DAE21D7581BB00477020 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C926DAE01D7581BB00477020 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		524DDB8021A5C87500073394 /* Calcul.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calcul.swift; sourceTree = "<group>"; };
 		C926DAD91D7581BB00477020 /* CountOnMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountOnMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C926DADC1D7581BB00477020 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C926DADE1D7581BB00477020 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,14 +87,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		521550FA219624DD00DEE812 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
-			path = Model/Model;
-			sourceTree = "<group>";
-		};
 		521550FB219624DF00DEE812 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +103,14 @@
 				C926DAE31D7581BB00477020 /* Assets.xcassets */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		524DDB7F21A5C85B00073394 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				524DDB8021A5C87500073394 /* Calcul.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C926DAD01D7581BB00477020 = {
@@ -135,7 +137,7 @@
 		C926DADB1D7581BB00477020 /* CountOnMe */ = {
 			isa = PBXGroup;
 			children = (
-				521550FA219624DD00DEE812 /* Model */,
+				524DDB7F21A5C85B00073394 /* Model */,
 				521550F9219624C400DEE812 /* View */,
 				521550FB219624DF00DEE812 /* Controller */,
 				521550FC2196252700DEE812 /* SupportingFiles */,
@@ -299,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				524DDB8121A5C87500073394 /* Calcul.swift in Sources */,
 				C926DADF1D7581BB00477020 /* ViewController.swift in Sources */,
 				C926DADD1D7581BB00477020 /* AppDelegate.swift in Sources */,
 			);
