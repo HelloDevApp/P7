@@ -36,20 +36,45 @@ class ViewController: UIViewController {
         addOperatorAndUpdateDisplays(operator_: .minus)
     }
     
+    @IBAction func multiplication() {
+        addOperatorAndUpdateDisplays(operator_: .multiplication)
+    }
+    
+    @IBAction func divide() {
+        addOperatorAndUpdateDisplays(operator_: .divide)
+    }
     
     @IBAction func equal() {
         guard _calcul.isExpressionCorrect else {
-            expressionIsNotCorrect()
+            //presentAlert
+            presentAlertIsNotCorrect()
             return
         }
         
         _calcul.calculateTotal()
-        textView.text = textView.text + "=\(_calcul.total)"
+        //allows to display the result of the calculation in double or in int
+        convertTotalInTextView()
+    }
+    
+    @IBAction func clear() {
+        _calcul.clear()
+        textView.text = "\(_calcul.basicResult)"
     }
 
-
+    @IBAction func dot(_ sender: Any) {
+        if _calcul.stringNumbers.last != nil {
+            guard (_calcul.stringNumbers.last!.contains(".")) else {
+                _calcul.addDot()
+                updateDisplay()
+                return
+            }
+            return
+        }
+    }
+    
     // MARK: - Methods
-    private func expressionIsNotCorrect() {
+    
+    private func presentAlertIsNotCorrect() {
         if _calcul.stringNumbers.count == 1 {
             presentAlert(title: "Zéro", message: "Démarrez un nouveau calcul !")
         } else {
@@ -58,12 +83,22 @@ class ViewController: UIViewController {
     }
     
     private func addOperatorAndUpdateDisplays(operator_: Operations) {
-        guard _calcul.canAddOperator else {
+        guard _calcul.isExpressionCorrect else {
             presentAlert(title: "Zéro", message: "Expression incorrecte !")
             return
         }
         _calcul.appendOperatorAndNewStringForNextNumber(operator_: operator_)
         updateDisplay()
+    }
+    
+    // converts the displayed text to decimal or integer
+    func convertTotalInTextView() {
+        if _calcul.resultIsDouble {
+            textView.text += " = \(_calcul.total)"
+        } else {
+            textView.text += " = \(Int(_calcul.total))"
+        }
+        _calcul.resultIsDouble = false
     }
     
     private func updateDisplay() {
