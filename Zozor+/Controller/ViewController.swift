@@ -52,14 +52,15 @@ class ViewController: UIViewController {
         }
         
         _calcul.calculateTotal()
-        //allows to display the result of the calculation in double or in int
-        convertTotalInTextView()
+        convertTotalInTextView() //display the result of the calculation in double or in int
     }
-    
+    // delete text on screen and clear array
+
     @IBAction func clear() {
         _calcul.clear()
         textView.text = "\(_calcul.basicResult)"
     }
+    // addDot
 
     @IBAction func dot(_ sender: Any) {
         if _calcul.stringNumbers.last != nil {
@@ -73,7 +74,8 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Methods
-    
+    // allows you to present an alert message if expression calcul is not correct
+
     private func presentAlertIsNotCorrect() {
         if _calcul.stringNumbers.count == 1 {
             presentAlert(title: "Zéro", message: "Démarrez un nouveau calcul !")
@@ -81,7 +83,7 @@ class ViewController: UIViewController {
             presentAlert(title: "Zéro", message: "Entrez une expression correcte !")
         }
     }
-    
+    // adds an operator to the array and updates the display
     private func addOperatorAndUpdateDisplays(operator_: Operations) {
         guard _calcul.isExpressionCorrect else {
             presentAlert(title: "Zéro", message: "Expression incorrecte !")
@@ -100,7 +102,7 @@ class ViewController: UIViewController {
         }
         _calcul.resultIsDouble = false
     }
-    
+    // updates the display of the text on the screen
     private func updateDisplay() {
         var text = ""
         for (i, stringNumber) in _calcul.stringNumbers.enumerated() {
@@ -113,7 +115,7 @@ class ViewController: UIViewController {
         }
         textView.text = text
     }
-    
+    // allows you to present an alert message
     private func presentAlert(title: String, message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))

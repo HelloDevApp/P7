@@ -70,28 +70,18 @@ class Calcul {
     func calculateTotal() {
         _total = 0
         for (i, stringNumber) in stringNumbers.enumerated() {
-            determineIfOperatorIsDivisor() // if operators contains Divisor, resultIsDouble = true
+            
             if let number = Double(stringNumber) {
                 // i = operator[i]
                 calculateByOperator(number: number, i: i)
             }
         }
-        if _total.remainder(dividingBy: 2) == 0 || _total.remainder(dividingBy: 2) == 1 {
-            resultIsDouble = false
-        }
+        determineIfResultIsInteger()
         clear()
     }
-    // determine if the operator is a divisor
-    func determineIfOperatorIsDivisor() {
-        for operator_ in operators {
-            if operator_ == Operations.divide.rawValue {
-                resultIsDouble = true
-            }
-        }
-    }
+    
     // i = index
     func calculateByOperator(number: Double, i: Int) {
-        print( _total.remainder(dividingBy: number))
         if operators[i] == Operations.plus.rawValue { //plus
             _total += number
         } else if operators[i] == Operations.minus.rawValue { //minus
@@ -99,11 +89,17 @@ class Calcul {
         } else if operators[i] == Operations.multiplication.rawValue { //multiply
             _total *= number
         } else if operators[i] == Operations.divide.rawValue { //divide
-            //if (total / number) returns an integer we change the value of resultIsDouble
-            if _total.truncatingRemainder(dividingBy: number) == 0 {
-                resultIsDouble = false
-            }
             _total /= number
+        }
+    }
+    
+    // allows you to convert the total and compare it to itself to know if it is an integer or a decimal
+    func determineIfResultIsInteger() {
+        let isInteger = floor(total) == total
+        if isInteger {
+            resultIsDouble = false
+        } else {
+            resultIsDouble = true
         }
     }
     
@@ -120,6 +116,5 @@ class Calcul {
         } else {
             _stringNumbers[stringNumbers.count-1] += "."
         }
-        resultIsDouble = true //????????
     }
 }
