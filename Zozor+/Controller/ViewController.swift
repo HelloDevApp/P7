@@ -55,11 +55,13 @@ class ViewController: UIViewController {
         convertTotalInTextView() //display the result of the calculation in double or in int
     }
     // delete text on screen and clear array
+
     @IBAction func clear() {
         _calcul.clear()
         textView.text = "\(_calcul.basicResult)"
     }
     // addDot
+
     @IBAction func dot(_ sender: Any) {
         if _calcul.stringNumbers.last != nil {
             guard (_calcul.stringNumbers.last!.contains(".")) else {
@@ -73,6 +75,7 @@ class ViewController: UIViewController {
     
     // MARK: - Methods
     // allows you to present an alert message if expression calcul is not correct
+
     private func presentAlertIsNotCorrect() {
         if _calcul.stringNumbers.count == 1 {
             presentAlert(title: "Zéro", message: "Démarrez un nouveau calcul !")
