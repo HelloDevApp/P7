@@ -12,13 +12,12 @@ class ViewController: UIViewController {
 
     // MARK: - Properties
     private let _calcul = Calcul()
+    
     // MARK: - Outlets
-
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var numberButtons: [UIButton]!
 
     // MARK: - Action
-
     @IBAction func tappedNumberButton(_ sender: UIButton) {
         for (i, numberButton) in numberButtons.enumerated() {
             if sender == numberButton {
@@ -54,14 +53,14 @@ class ViewController: UIViewController {
         _calcul.calculateTotal()
         convertTotalInTextView() //display the result of the calculation in double or in int
     }
+    
     // delete text on screen and clear array
-
     @IBAction func clear() {
         _calcul.clear()
         textView.text = "\(_calcul.basicResult)"
     }
+    
     // addDot
-
     @IBAction func dot(_ sender: Any) {
         if _calcul.stringNumbers.last != nil {
             guard (_calcul.stringNumbers.last!.contains(".")) else {
@@ -75,7 +74,6 @@ class ViewController: UIViewController {
     
     // MARK: - Methods
     // allows you to present an alert message if expression calcul is not correct
-
     private func presentAlertIsNotCorrect() {
         if _calcul.stringNumbers.count == 1 {
             presentAlert(title: "Zéro", message: "Démarrez un nouveau calcul !")
@@ -83,6 +81,7 @@ class ViewController: UIViewController {
             presentAlert(title: "Zéro", message: "Entrez une expression correcte !")
         }
     }
+    
     // adds an operator to the array and updates the display
     private func addOperatorAndUpdateDisplays(operator_: Operations) {
         guard _calcul.isExpressionCorrect else {
@@ -102,6 +101,7 @@ class ViewController: UIViewController {
         }
         _calcul.resultIsDouble = false
     }
+    
     // updates the display of the text on the screen
     private func updateDisplay() {
         var text = ""
@@ -115,6 +115,7 @@ class ViewController: UIViewController {
         }
         textView.text = text
     }
+    
     // allows you to present an alert message
     private func presentAlert(title: String, message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
