@@ -11,14 +11,16 @@ import UIKit
 class ViewController: UIViewController {
 
     // MARK: - Properties
+    // instance of the Calcul class
     private let _calcul = Calcul()
     // MARK: - Outlets
-
+    // the label that displays the result
     @IBOutlet weak var textView: UITextView!
+    // containing all the number buttons
     @IBOutlet var numberButtons: [UIButton]!
 
     // MARK: - Action
-
+    // contains the action of adding a number to the array
     @IBAction func tappedNumberButton(_ sender: UIButton) {
         for (i, numberButton) in numberButtons.enumerated() {
             if sender == numberButton {
@@ -27,23 +29,23 @@ class ViewController: UIViewController {
             }
         }
     }
-
+    // contains the action that allows you to add a plus
     @IBAction func plus() {
         addOperatorAndUpdateDisplays(operator_: .plus)
     }
-
+    // contains the action that allows you to add a minus
     @IBAction func minus() {
         addOperatorAndUpdateDisplays(operator_: .minus)
     }
-    
+    // contains the action that allows you to add a multiply
     @IBAction func multiplication() {
         addOperatorAndUpdateDisplays(operator_: .multiplication)
     }
-    
+    // contains the action that allows you to add a divide
     @IBAction func divide() {
         addOperatorAndUpdateDisplays(operator_: .divide)
     }
-    
+    // contains the action that allows to run a calcul
     @IBAction func equal() {
         guard _calcul.isExpressionCorrect else {
             //presentAlert
@@ -52,7 +54,8 @@ class ViewController: UIViewController {
         }
         
         _calcul.calculateTotal()
-        convertTotalInTextView() //display the result of the calculation in double or in int
+        //display the result of the calculation in double or in int
+        convertTotalInTextView()
     }
     // delete text on screen and clear array
     @IBAction func clear() {
@@ -93,14 +96,17 @@ class ViewController: UIViewController {
     // converts the displayed text to decimal or integer
     func convertTotalInTextView() {
         if _calcul.resultIsDouble {
+            // Double
             textView.text += " = \(_calcul.total)"
         } else {
+            // Integer
             textView.text += " = \(Int(_calcul.total))"
         }
         _calcul.resultIsDouble = false
     }
     // updates the display of the text on the screen
     private func updateDisplay() {
+        // contains the text to be displayed on the screen
         var text = ""
         for (i, stringNumber) in _calcul.stringNumbers.enumerated() {
             // Add operator
