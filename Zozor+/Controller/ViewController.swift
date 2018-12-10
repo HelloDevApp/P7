@@ -70,6 +70,7 @@ class ViewController: UIViewController {
     }
 
     // delete text on screen and clear array
+
     @IBAction func clear() {
         _numberOfTimeFontShrink = 0
         _calcul.clear()
@@ -78,6 +79,7 @@ class ViewController: UIViewController {
     }
 
     // addDot
+
     @IBAction func dot(_ sender: Any) {
         if _calcul.stringNumbers.last != nil {
             guard (_calcul.stringNumbers.last!.contains(".")) else {
@@ -91,6 +93,7 @@ class ViewController: UIViewController {
     
     // MARK: - Methods
     // allows you to present an alert message if expression calcul is not correct
+
     private func presentAlertIsNotCorrect() {
         if _calcul.stringNumbers.count == 1 {
             presentAlert(title: "Zéro", message: "Démarrez un nouveau calcul !")
