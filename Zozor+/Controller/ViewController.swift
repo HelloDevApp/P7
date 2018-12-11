@@ -13,8 +13,6 @@ class ViewController: UIViewController {
     // MARK: - Properties
     // instance of the Calcul class
     private let _calcul = Calcul()
-    // contains number of times the font shrinks
-    private var _numberOfTimeFontShrink = 0
 
     // MARK: - Outlets
     // the label that displays the result
@@ -71,7 +69,6 @@ class ViewController: UIViewController {
 
     // delete text on screen and clear array
     @IBAction func clear() {
-        _numberOfTimeFontShrink = 0
         _calcul.clear()
         textView.font = UIFont.systemFont(ofSize: 60.0)
         textView.text = "0"
@@ -151,7 +148,6 @@ class ViewController: UIViewController {
         let totalCountNumber = _calcul.totalNumberInStringNumbers()
         if totalCountNumber > 8 && textView.font!.pointSize > CGFloat(50) {
             textView.shrinkFont(reduceOf: 2)
-            _numberOfTimeFontShrink += 1
         }
         if totalCountNumber == 1 {
             textView.font = UIFont.systemFont(ofSize: 60)
