@@ -109,4 +109,19 @@ class Zozor_Tests: XCTestCase {
         
         XCTAssert(calcul.resultIsDouble)
     }
+    // is to use for testing the method that counts the number of characters in the stringnumbers array
+    func testGivenThatStringNumberIsEmpty_WhenWeIncrementingThreeCaracters_ThenNumberOfCaractersIsEqualThree () {
+        
+        let numberOfCaractersBeforeAdd = calcul.totalNumberInStringNumbers()
+        
+        XCTAssert(numberOfCaractersBeforeAdd == 0)
+        
+        // add 3 caracters
+        calcul.addNewNumber(100)
+        
+        let numberOfCaractersAfterAdd = calcul.totalNumberInStringNumbers()
+        
+        XCTAssert(numberOfCaractersAfterAdd == 3)
+        
+    }
 }
