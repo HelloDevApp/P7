@@ -57,7 +57,9 @@ class ViewController: UIViewController {
 
     // contains the action that allows to run a calcul
     @IBAction func equal() {
-        guard _calcul.isExpressionCorrect else {
+        // if it is equal to true then the calculation contains a division by zero
+        let isDivideByZero = _calcul.isDivideByZero()
+        guard _calcul.isExpressionCorrect && isDivideByZero == false else {
             //presentAlert
             presentAlertIsNotCorrect()
             return
@@ -92,6 +94,10 @@ class ViewController: UIViewController {
         if _calcul.stringNumbers.count == 1 {
             presentAlert(title: "Zéro", message: "Démarrez un nouveau calcul !")
         } else {
+            if _calcul.isDivideByZero() == true {
+                presentAlert(title: "Erreur", message: "La division par zéro est interdite.")
+                return
+            }
             presentAlert(title: "Zéro", message: "Entrez une expression correcte !")
         }
     }
