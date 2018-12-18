@@ -138,4 +138,17 @@ class Calcul {
         }
         return totalCountNumber
     }
+    // allows to check that the calculation does not contain a division by zero
+    func isDivideByZero() -> Bool {
+        for (i,operator_) in operators.enumerated() {
+            if operator_ == Operations.divide.rawValue {
+                if stringNumbers[i].count == 1 && stringNumbers[i].contains("0") {
+                    // ERROR CALCUL
+                    return true
+                }
+            }
+        }
+        // CORRECT CALCUL
+        return false
+    }
 }
