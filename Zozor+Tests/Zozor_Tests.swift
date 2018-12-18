@@ -124,4 +124,17 @@ class Zozor_Tests: XCTestCase {
         XCTAssert(numberOfCaractersAfterAdd == 3)
         
     }
+    // allows to test that calculations containing a division by zero returns an error 
+    func testWhenTheCalculationContainingADivisionByZero_ThenAnErrorAppears() {
+        
+        let isDivideByZeroBefore = calcul.isDivideByZero()
+        XCTAssert(isDivideByZeroBefore == false)
+        
+        calcul.addNewNumber(5)
+        calcul.appendOperatorAndNewStringForNextNumber(operator_: .divide)
+        calcul.addNewNumber(0)
+        
+        let isDivideByZeroAfter = calcul.isDivideByZero()
+        XCTAssert(isDivideByZeroAfter == true)
+    }
 }
